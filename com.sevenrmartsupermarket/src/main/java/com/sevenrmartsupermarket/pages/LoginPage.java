@@ -57,6 +57,7 @@ public class LoginPage {
 String userName=properties.getProperty("userName");
 String password=properties.getProperty("password");
 login(userName,password);
+System.out.println();
 }
 		public String invalidlogin(String userName1,String password1) {
 			
