@@ -14,12 +14,12 @@ public class LoginTest extends Base {
 	 LoginPage loginpage;
 	 
 	
-	@Test
+	@Test(retryAnalyzer = com.sevenrmartsupermarket.listeners.RetryAnalyzer.class)
 	public void verifyLogin() {
 		loginpage=new LoginPage(driver);
 		homepage=new HomePage(driver);
 		loginpage.login();
-		String expectedProfileName="Admin";
+		String expectedProfileName="Admi";
 		String actualProfileName= homepage.getProfileName();
 		Assert.assertEquals(actualProfileName,expectedProfileName);
 	}
@@ -35,10 +35,17 @@ public void verifyInvalidLogin() {
 	Assert.assertEquals(actualInvalidMessage,expectedInvalidMessage);
 	
 }@Test(groups="sanity")
-public void verifyRemembermeCheckbox() {
+public void verifyRememberme() {
 	loginpage=new LoginPage(driver);
 	boolean x=loginpage.remembermeCheckbox();
 	
 	Assert.assertTrue(x);
 }
+@Test
+public void verifyCheckbox() {
+	loginpage=new LoginPage(driver);
+	System.out.println(loginpage.rememberme());
+}
+
+
 }
