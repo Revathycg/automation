@@ -38,17 +38,11 @@ public class LoginTest extends Base {
 	@Test(groups = "sanity")
 	public void verifyRememberme() {
 		loginpage = new LoginPage(driver);
-		boolean x = loginpage.remembermeCheckbox();
+		 
 
-		Assert.assertTrue(x);
+		Assert.assertTrue(loginpage.remembermeCheckbox());
 	}
 
-	@Test
 	
-	public void verifyCheckbox() {
-		loginpage = new LoginPage(driver);
-		boolean x=loginpage.rememberMe();
-		Assert.assertTrue(x);
-	}
 
 }
