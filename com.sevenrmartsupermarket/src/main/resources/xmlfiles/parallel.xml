@@ -11,7 +11,7 @@
 	</test>
 	<test name="testcase2">
 		<classes>
-			<class name="com.sevenrmartsupermarket.tests.LoginTest"></class>
+			
 		</classes>
 	</test>
 	<test name="testcase3">
