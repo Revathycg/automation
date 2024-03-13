@@ -23,6 +23,10 @@ public class LoginPage {
 	 WebElement invalidAlertMessage;
 	 @FindBy(xpath="//input[@id='remember']//following-sibling::label")
 	 WebElement rememberme;
+	 @FindBy(xpath="//label[contains(text(),'Remember')]")
+	 WebElement clickOnRememberme;
+	 @FindBy(xpath="//input[@id='remember']")
+	 WebElement remembermeCheckbox;
 	public LoginPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
@@ -70,4 +74,9 @@ login(userName,password);
 		public boolean remembermeCheckbox() {
 			return rememberme.isDisplayed();
 		}
+		
+//		public boolean rememberMe() {
+//			clickOnRememberme.click();
+//			return remembermeCheckbox.isSelected();
+//		}
 }
