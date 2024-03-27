@@ -21,7 +21,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Base {
 	public WebDriver driver;
-	/**initialising driver**/
 	Properties properties=new Properties();
 	public Base() {
 		try {
@@ -56,7 +55,6 @@ public class Base {
 	@BeforeMethod(enabled=false)
 	public void launchBrowser(String browser) {
 		
-		//String browser=properties.getProperty("browser");
 		String url=properties.getProperty("url");
 		initialize(browser,url);
 		}

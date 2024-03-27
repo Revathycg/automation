@@ -12,25 +12,26 @@ import org.openqa.selenium.support.PageFactory;
 import com.sevenrmartsupermarket.utilities.GeneralUtility;
 
 public class HomePage {
-	
-		WebDriver driver;
-		 @FindBy(xpath="//a[@class='d-block']")
-		 WebElement profileName;
-		 @FindBy(xpath = "//div[@class='inner']")
-			List<WebElement> listOfContent;
-		 GeneralUtility generalutility=new GeneralUtility();
-		 public HomePage(WebDriver driver) {
-				this.driver=driver;
-				PageFactory.initElements(driver,this);
-		 
-}
-		 public String getProfileName() {
-			 return(profileName.getText());
-		 }
-		 public List<String> content(){
-			 List<String> contentList=new ArrayList();
-			 contentList=generalutility.getTextofElements(listOfContent);
-			 return contentList;
-			 
-		 }
+
+	WebDriver driver;
+	@FindBy(xpath = "//a[@class='d-block']")
+	private WebElement profileName;
+	@FindBy(xpath = "//section//div//p")
+	private List<WebElement> listOfContent;
+	GeneralUtility generalutility = new GeneralUtility();
+
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	public String getProfileName() {
+		return (profileName.getText());
+	}
+
+	public List<String> content() {
+		List<String> contentList = new ArrayList();
+		contentList = generalutility.getTextofElements(listOfContent);
+		return contentList;
+	}
 }

@@ -1,4 +1,4 @@
-<suite name="testes" thread-count="5" parallel="testes">
+<suite name="testes" thread-count="6" parallel="tests">
 	<listeners>
 	<listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter">
 		
@@ -11,7 +11,7 @@
 	</test>
 	<test name="testcase2">
 		<classes>
-			
+			<class name="com.sevenrmartsupermarket.tests.ManageContentTest"></class>
 		</classes>
 	</test>
 	<test name="testcase3">

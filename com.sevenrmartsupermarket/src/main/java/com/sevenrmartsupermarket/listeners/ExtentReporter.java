@@ -20,6 +20,7 @@ import com.sevenrmartsupermarket.constants.Constants;
 
 
 
+
 public class ExtentReporter implements IReporter {
 
 	private ExtentReports extent;

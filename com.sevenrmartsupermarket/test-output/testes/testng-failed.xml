@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="6" parallel="methods" name="Failed suite [testes]">
+  <listeners>
+    <listener class-name="com.sevenrmartsupermarket.listeners.ExtentReporter"/>
+  </listeners>
+  <test thread-count="6" parallel="methods" name="testcase2(failed)">
+    <classes>
+      <class name="com.sevenrmartsupermarket.tests.ManageContentTest">
+        <methods>
+          <include name="verifyManageContent"/>
+          <include name="launchBrowser"/>
+          <include name="launchBrowser"/>
+          <include name="terminateSession"/>
+        </methods>
+      </class> <!-- com.sevenrmartsupermarket.tests.ManageContentTest -->
+    </classes>
+  </test> <!-- testcase2(failed) -->
+</suite> <!-- Failed suite [testes] -->

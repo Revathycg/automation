@@ -5,41 +5,39 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.utilities.PageUtility;
 
 public class ManageDeliveryboyPage {
 	PageUtility pageutility;
 	WebDriver driver;
 	@FindBy(xpath = "//p[contains(text(),'Manage Delivery Boy')]")
-	WebElement clickOnDeliveryOption;
+	private WebElement clickOnDeliveryOption;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-danger']")
-	WebElement newOption;
+	private WebElement newOption;
 	@FindBy(xpath = "//input[@id='name']")
-	WebElement namefield;
+	private WebElement nameField;
 	@FindBy(xpath = "(//input[@class='form-control'])[2]")
-	WebElement enterMail;
+	private WebElement enterMail;
 	@FindBy(xpath = "(//input[@class='form-control'])[3]")
-	WebElement enterPhone;
+	private WebElement enterPhone;
 	@FindBy(xpath = "//textarea[@id='address']")
-	WebElement addressField;
+	private WebElement addressField;
 	@FindBy(xpath = "(//input[@class='form-control'])[4]")
-	WebElement userNameField;
+	private WebElement userNameField;
 	@FindBy(xpath = "(//input[@class='form-control'])[5]")
-	WebElement passwordField;
+	private WebElement passwordField;
 	@FindBy(xpath = "//button[contains(text(),'Save')]")
-	WebElement saveButton;
+	private WebElement saveButton;
+	@FindBy(xpath = "//h5[text()=' Alert!']")
+	private WebElement alert;
 
 	public ManageDeliveryboyPage(WebDriver driver) {
-
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
 
 	public void clickOnManageDelivery() {
 		clickOnDeliveryOption.click();
-		//executing programmes
 	}
 
 	public void clickOnNew() {
@@ -48,7 +46,7 @@ public class ManageDeliveryboyPage {
 
 	public void enterName1(String name) {
 
-		namefield.sendKeys(name);
+		nameField.sendKeys(name);
 	}
 
 	public void enterMail(String email) {
@@ -79,7 +77,6 @@ public class ManageDeliveryboyPage {
 	public void clickOnSave() {
 		pageutility = new PageUtility(driver);
 		pageutility.scrollAndClick(saveButton);
-
 	}
 
 	public void createDeliveryBoy(String name, String mailid, String number, String address, String userName,
@@ -91,8 +88,10 @@ public class ManageDeliveryboyPage {
 		enterAddress(address);
 		enterUserName(userName);
 		enterPassword(password);
-
 		clickOnSave();
+	}
+	public String getAlert() {
+		return alert.getText();
 	}
 
 }

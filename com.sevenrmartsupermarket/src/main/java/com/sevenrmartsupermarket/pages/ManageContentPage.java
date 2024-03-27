@@ -4,34 +4,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.sevenrmartsupermarket.utilities.PageUtility;
+import com.sevenrmartsupermarket.utilities.WaitUtility;
 
 public class ManageContentPage {
 	WebDriver driver;
 	@FindBy(xpath = "//p[contains(text(),'Manage Content')]    ")
-	WebElement clickOnContent;
+	private WebElement clickOnContent;
 	@FindBy(xpath = "//p[contains(text(),'Manage Pages')]   ")
-	WebElement clickOnPage;
+	private WebElement clickOnPage;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
-	WebElement clickOnNew;
+	private WebElement clickOnNew;
 	@FindBy(xpath = "//input[@id='title'] ")
-	WebElement enterTitle;
+	private WebElement enterTitle;
 	@FindBy(xpath = "//input[@id='page']")
-	WebElement enterPageName;
+	private WebElement enterPageName;
 	@FindBy(xpath = "//input[@id='main_img']")
-	WebElement fileUpload;
+	private WebElement fileUpload;
 	@FindBy(xpath = "//button[@class='btn btn-danger']")
-	WebElement save;
+	private WebElement save;
 	@FindBy(xpath = "//h5[text()=' Alert!']")
-	WebElement alert;
+	private WebElement alert;
 	PageUtility pageutility;
+	WaitUtility wait;
 
 	public ManageContentPage(WebDriver driver) {
-
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
 
 	public void clickOnManageContent() {
@@ -51,12 +50,13 @@ public class ManageContentPage {
 	}
 
 	public void enterPage(String page) {
-		enterPageName.sendKeys(page);
+		 enterPageName.sendKeys(page);
 	}
 
 	public void fileUploading(String filepath) {
+		wait=new WaitUtility(driver);
+		wait.waitForClickable(fileUpload, 10);
 		fileUpload.sendKeys(filepath);
-
 	}
 
 	public void clickOnSave() {
@@ -64,7 +64,7 @@ public class ManageContentPage {
 		pageutility.scrollAndClick(save);
 	}
 
-	public void createManageContent(String title, String page, String filepath) {
+	public void createManageContent(String title,String page, String filepath) {
 		clickOnManageContent();
 		clickOnManagePage();
 		clickOnNew();
